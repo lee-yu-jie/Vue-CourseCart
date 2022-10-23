@@ -4,29 +4,29 @@
       <section
         v-for="item in cartList"
         :key="item.id"
-        class="bg-blue-100 flex mb-3 pr-3 text-sm sm:text-lg"
+        class="flex pr-3 mb-3 text-sm bg-blue-100 sm:text-lg"
       >
         <input
           type="checkbox"
           class="mx-2"
-          v-model="deletedArr.data"
+          v-model="deletedList"
           :value="item.id"
         />
         <img
-          class="w-32 h-32 object-cover"
+          class="object-cover w-32 h-32"
           :src="item.picture"
           :alt="item.title"
         />
-        <div class="ml-4 py-1 flex-1">
+        <div class="flex-1 py-1 ml-4">
           <p class="mb-2">{{ item.title }}</p>
-          <div class="flex justify-between items-end">
+          <div class="flex items-end justify-between">
             <div>
               <p class="mb-2">${{ item.price }}</p>
               <p>數量：{{ item.amount }}</p>
             </div>
             <div>
               <button
-                class="hover:bg-red-400 p-2 sm:p-3 rounded-md"
+                class="p-2 rounded-md hover:bg-red-400 sm:p-3"
                 @click="deleted(item)"
               >
                 🗑️
@@ -38,7 +38,7 @@
       </section>
       <div class="mb-2">
         <button
-          class="bg-red-200 text-xs p-1 rounded-xl text-white hover:text-red-500"
+          class="p-1 text-xs text-white bg-red-200 rounded-xl hover:text-red-500"
           @click="deletedChecked"
         >
           刪除已選
@@ -46,7 +46,7 @@
       </div>
       <div class="flex justify-between">
         <p>總金額：＄{{ sum }}</p>
-        <button class="bg-green-400 text-white px-4 py-2 rounded-md">
+        <button class="px-4 py-2 text-white bg-green-400 rounded-md">
           結帳
         </button>
       </div>
@@ -58,30 +58,40 @@
 </template>
 
 <script>
+// import { get } from "http";
 import { computed, reactive } from "vue";
 import { useStore } from "vuex";
 
 export default {
   setup() {
     const store = useStore();
-    const deletedArr = reactive({
-      data: [],
-    });
+    // const deletedArr = reactive({
+    //   data: [],
+    // });
     const cartList = computed(() => store.getters.cartList);
     const deleted = (item) => {
       store.dispatch("handdelted", item);
     };
     const sum = computed(() => store.getters.cartSum);
     const deletedChecked = () => {
-      console.log(deletedArr.data);
-      store.dispatch("handdeltedChecked", deletedArr.data);
+      // console.log(deletedArr.data);
+      store.dispatch("handdeltedChecked");
     };
+    const deletedList = computed({
+      get(){
+        return store.getters.deletedList
+      },
+      set(value){
+        store.dispatch('handaddtodeletedArr', value)
+      }
+    })
     return {
       cartList,
       sum,
       deleted,
-      deletedArr,
+      // deletedArr,
       deletedChecked,
+      deletedList,
     };
   },
 };

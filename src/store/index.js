@@ -5,7 +5,8 @@ export default createStore({
   state: {
     course: [],
     cartList: [],
-    sum: 0
+    sum: 0,
+    deletedArr: []
   },
   actions: {
     handgetCourse({ commit }) {
@@ -23,9 +24,12 @@ export default createStore({
       commit("deleted", item);
       commit("getSum");
     },
-    handdeltedChecked({ commit }, item) {
-      commit("deletedChecked", item);
+    handdeltedChecked({ commit }) {
+      commit("deletedChecked");
       commit("getSum");
+    },
+    handaddtodeletedArr({ commit }, item){
+      commit('addtodeletedArr', item);
     }
   },
   mutations: {
@@ -57,15 +61,19 @@ export default createStore({
         state.cartList.splice(index, 1);
       }
     },
-    deletedChecked(state, item) {
-      item.forEach(() => {
+    deletedChecked(state,) {
+      state.deletedArr.forEach((item) => {
         const index = state.cartList.findIndex(
-          (data) => data.name === item.name
+          (data) => data.id === item
         );
         if (index >= 0) {
           state.cartList.splice(index, 1);
         }
       });
+    },
+    addtodeletedArr(state, item){
+      console.log(item);
+      state.deletedArr = item
     }
   },
   getters: {
@@ -77,6 +85,9 @@ export default createStore({
     },
     cartSum(state) {
       return state.sum;
+    },
+    deletedList(state){
+      return state.deletedArr
     }
   }
 });
