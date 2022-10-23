@@ -70,6 +70,7 @@ export default createStore({
           state.cartList.splice(index, 1);
         }
       });
+      state.deletedArr.length = 0
     },
     addtodeletedArr(state, item){
       console.log(item);
