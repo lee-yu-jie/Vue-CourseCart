@@ -17,7 +17,7 @@
         </button>
       </div>
     </div>
-    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-12 w-fit text-sm  "  v-if="cartList.length == 0" ref="notCart">
+    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-8 sm:h-12 w-fit text-sm  "  v-if="cartList.length == 0" ref="notCart">
       
     </div>
   </div>

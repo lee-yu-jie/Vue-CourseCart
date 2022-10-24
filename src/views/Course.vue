@@ -1,6 +1,6 @@
 <template>
   <div class="px-5 pt-10 ">
-    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-12 w-fit text-sm " v-if="isLoad" >
+    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-8 sm:h-12 w-fit text-sm " v-if="isLoad" >
       載入中
     </div>
       <div
