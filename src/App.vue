@@ -56,4 +56,10 @@ export default {
 .brand-name, a{
   font-family: 'Gloria Hallelujah', cursive;
 }
+.font-shadow {
+  letter-spacing: 10px;
+  font-weight: 700;
+  color: #e7bc7b;
+  text-shadow: 4px 4px 0 #4f22b1;
+        }
 </style>

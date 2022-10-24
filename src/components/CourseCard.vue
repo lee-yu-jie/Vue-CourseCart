@@ -7,7 +7,7 @@
       :alt="props.item.title"
       />
     </div>
-    <div class="flex flex-col justify-center w-1/2 p-3 pl-5 -ml-3 border h-44 bg-[#FFFFCC80] rounded-xl wow fadeInRight">
+    <div class="flex flex-col justify-center w-1/2 p-3 pl-5 -ml-3 border h-44 bg-[#FFFFCC80] rounded-xl animated fadeInRight">
       <div>
         <h2 class="mb-2 font-bold text-purple-600 ">{{ props.item.title }}</h2>
         <p class="mb-2 ">${{ props.item.price }}</p>
@@ -28,12 +28,10 @@
 
 <script>
 import { useStore } from "vuex";
-import WOW from 'wow.js';
 
 export default {
   props: ["item"],
   setup(props) {
-    new WOW({ live: false }).init();
     const store = useStore();
     const addToCart = (item) => {
       store.dispatch("handaddtoCart", item);

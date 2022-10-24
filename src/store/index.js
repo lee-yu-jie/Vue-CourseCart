@@ -6,7 +6,8 @@ export default createStore({
     course: [],
     cartList: [],
     sum: 0,
-    deletedArr: []
+    deletedArr: [],
+    isLoad: true
   },
   actions: {
     handgetCourse({ commit }) {
@@ -34,6 +35,7 @@ export default createStore({
   },
   mutations: {
     getCourse(state, data) {
+      state.isLoad = false
       state.course = data;
     },
     addtoCart(state, item) {
@@ -89,6 +91,9 @@ export default createStore({
     },
     deletedList(state){
       return state.deletedArr
+    },
+    isLoadDone(state) {
+      return state.isLoad
     }
   }
 });

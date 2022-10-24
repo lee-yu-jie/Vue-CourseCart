@@ -1,5 +1,8 @@
 <template>
   <div class="px-5 pt-10 ">
+    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-12 w-fit text-sm " v-if="isLoad" >
+      載入中
+    </div>
       <div
       class="grid max-w-6xl grid-cols-1 gap-4 mx-auto sm:grid-cols-2" 
       >
@@ -22,6 +25,7 @@ export default {
     const store = useStore();
 
     const courseList = computed(() => store.getters.courseList);
+    const isLoad = computed(() => store.getters.isLoadDone)
     const getCourse = () => {
       store.dispatch("handgetCourse");
     };
@@ -31,6 +35,7 @@ export default {
     });
     return {
       courseList,
+      isLoad
     };
   },
 };

@@ -5,7 +5,7 @@ import Introduce from "../views/Introduce.vue";
 const routerHistory = createWebHistory();
 const routes = [
   {
-    path: "/",
+    path: "/Vue-CourseCart",
     name: "Introduce",
     component: Introduce
   },

@@ -17,14 +17,14 @@
         </button>
       </div>
     </div>
-    <div class="text-center" v-if="cartList.length == 0">
-      目前還沒有商品在購物車喔！
+    <div class="sm:text-3xl mx-auto font-shadow border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border h-12 w-fit text-sm  "  v-if="cartList.length == 0" ref="notCart">
+      
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 import CartCard from '@/components/CartCard.vue'
 export default {
@@ -33,16 +33,32 @@ export default {
   },
   setup() {
     const store = useStore();
-
+    const notCart = ref(null)
+    let timer = null
+    const data = '目前還沒有商品在購物車喔！'.split('')
+    
     const cartList = computed(() => store.getters.cartList);
     const sum = computed(() => store.getters.cartSum);
     const deletedChecked = () => {
       store.dispatch("handdeltedChecked");
     };
+
+    onMounted(() => {
+      let index = 0
+      function writing() {
+        if (index < data.length) {
+          notCart.value.innerHTML += data[index ++]
+        } else {
+          clearInterval(timer)
+        }
+      }
+      timer = setInterval(writing, 200)
+    })
     return {
       cartList,
       sum,
       deletedChecked,
+      notCart,
     };
   },
 };

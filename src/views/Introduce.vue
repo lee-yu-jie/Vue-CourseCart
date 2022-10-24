@@ -1,10 +1,10 @@
 <template lang="">
   <div class="flex w-11/12 sm:w-2/3 mx-auto aspect-[4/2] pt-8 mb-10">
     <div class="w-1/2 h-full">
-      <img src="../../public/img/aboutus1.png" alt="" class="object-cover w-full h-3/5">
+      <img src="../../public/img/aboutus1.png" alt="" class="object-cover w-full animated zoomIn h-3/5">
       <div class="flex w-full h-2/5">
         <img src="../../public/img/aboutus4.png" alt="" class="object-cover w-1/2 h-full">
-        <div class="brand-slogan wow fadeInRight bg-[#544E70] text-[#FEC37D] ">
+        <div class="brand-slogan bg-[#544E70] text-[#FEC37D] animated rubberBand">
           <p>Nature</p>
           <P>Innocuous</P>
           <p>Funny</p>
@@ -13,14 +13,14 @@
     </div>
     <div class="w-1/2 h-full">
       <div class="flex w-full h-2/5">
-        <div class="brand-slogan bg-[#FEC37D] text-[#544E70]">
+        <div class="brand-slogan bg-[#FEC37D] text-[#544E70] animated rubberBand  ">
           <p>Family</p>
           <p>Friends</p>
           <p>Couple</p>
         </div>
-        <img src="../../public/img/aboutus3.png" alt="" class="object-cover w-1/2 h-fill">
+        <img src="../../public/img/aboutus3.png" alt="" class="object-cover w-1/2 h-full">
       </div>
-      <img src="../../public/img/aboutus2.png" alt="" class="object-cover w-full h-3/5">
+      <img src="../../public/img/aboutus2.png" alt="" class="object-cover w-full h-3/5 animated zoomIn">
     </div>
   </div>
   <div class=" w-3/4 text-sm lg:text-base lg:w-1/2 mx-auto bg-[#00000090] py-8 groove-border border-4 px-6 border-yellow-500 text-white">
@@ -32,10 +32,8 @@
 </template>
 
 <script>
-import WOW from 'wow.js';
 export default {
   setup(){
-    new WOW({ live: false }).init();
   }
 }
 </script>
