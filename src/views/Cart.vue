@@ -1,17 +1,17 @@
 <template>
-  <div class="cart">
-    <div v-if="cartList.length !== 0">
+  <div class="px-6 cart">
+    <div v-if="cartList.length !== 0" class="w-2/3 mx-auto ">
       <CartCard v-for="item in cartList" :key="item.id" :item="item"/>
-      <div class="mb-2">
+      <div class="flex justify-between mb-2">
         <button
-          class="p-1 text-xs text-white bg-red-200 rounded-xl hover:text-red-500"
+          class="p-2 text-xs text-white bg-red-200 rounded-xl hover:text-red-500"
           @click="deletedChecked"
         >
           刪除已選
         </button>
+        <p class="py-3 text-xl font-bold text-purple-700 ">總金額：＄{{ sum }}</p>
       </div>
-      <div class="flex justify-between">
-        <p>總金額：＄{{ sum }}</p>
+      <div class="flex justify-end">
         <button class="px-4 py-2 text-white bg-green-400 rounded-md">
           結帳
         </button>
@@ -49,4 +49,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

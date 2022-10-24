@@ -1,9 +1,13 @@
 <template>
-  <div
-    class="max-w-6xl mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid grid-cols-2 gap-4"
-  >
-    <CourseCard v-for="item in courseList" :key="item.id" :item="item" />
+  <div class="px-5 pt-10 ">
+      <div
+      class="grid max-w-6xl grid-cols-1 gap-4 mx-auto sm:grid-cols-2" 
+      >
+      <CourseCard v-for="item in courseList" :key="item.id" :item="item" />
+    </div>
+
   </div>
+
 </template>
 
 <script>

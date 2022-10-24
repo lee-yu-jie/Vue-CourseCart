@@ -1,17 +1,23 @@
 <template>
   <header
-    class="h-12 border bg-blue-200 flex justify-center items-center shadow-md mb-6"
+    class="py-6 "
   >
-    <router-link to="/" class="mr-4 hover:text-red-500">課程列表</router-link>
-    |
-    <router-link to="Cart" class="ml-4 hover:text-red-500"
-      >購物車({{ amount }})</router-link
-    >
+    <div class="py-3 mx-auto border shadow-md w-[350px] rounded-3xl">
+      <h1 class="mb-2 text-center"><span class="text-5xl brand-name">Medusa</span>手工坊</h1>
+      <div  class="flex items-center justify-center">
+        <router-link to="/" class="mr-4 hover:text-[#B95756]">About Us</router-link>
+        |
+        <router-link to="/Course" class="mx-4 hover:text-[#B95756]">Course List</router-link>
+        |
+        <router-link to="Cart" class="ml-4 hover:text-[#B95756]">Cart ({{ amount }})</router-link>
+      </div>
+    </div>
+
   </header>
 </template>
 
 <script>
-import { ref, watch, reactive, computed } from "vue";
+import { ref, watch } from "vue";
 import { useStore } from "vuex";
 
 export default {

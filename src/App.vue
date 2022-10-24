@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :cartlist="cartlist" />
-    <main class="px-5">
+    <main >
       <router-view></router-view>
     </main>
   </div>
@@ -10,6 +10,8 @@
 <script>
 import Header from "./components/Header.vue";
 import { reactive } from "vue";
+import 'animate.css';
+import WOW from 'wow.js';
 export default {
   components: {
     Header,
@@ -17,6 +19,7 @@ export default {
   setup() {
     let cartlist = reactive([]);
 
+    new WOW({ live: false }).init();
     const handcartlist = (item) => {
       cartlist[0] = item;
       // console.log(cartlist);
@@ -30,12 +33,27 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Gloria+Hallelujah&display=swap');
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(../public/img/backgolden.png);
+  min-height: 100vh;
 }
 .router-link-active {
-  color: blue;
+  background: #876fa1;
+  color: white;
+  border: 2px solid gold;
+  padding: .5em;
+  border-radius: 1em;
+}
+
+.groove-border{
+  border-style: groove;
+}
+
+.brand-name, a{
+  font-family: 'Gloria Hallelujah', cursive;
 }
 </style>

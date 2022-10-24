@@ -1,8 +1,8 @@
 <template>
-  <section class="flex pr-3 mb-3 text-sm bg-blue-100 sm:text-lg">
+  <section class="flex pr-3 mb-3 text-sm border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border sm:text-lg">
     <input
       type="checkbox"
-      class="mx-2"
+      class="mx-5" 
       v-model="deletedList"
       :value="props.item.id"
     />
@@ -11,24 +11,25 @@
       :src="props.item.picture"
       :alt="props.item.title"
     />
-    <div class="flex-1 py-1 ml-4">
-      <p class="mb-2">{{ props.item.title }}</p>
+    <div class="flex-1 py-1 ml-4 font-bold text-purple-800">
+      <p class="mb-2 ">{{ props.item.title }}</p>
       <div class="flex items-end justify-between">
         <div>
           <p class="mb-2">${{ props.item.price }}</p>
           <p>數量：{{ props.item.amount }}</p>
         </div>
         <div>
-          <button
-            class="p-2 rounded-md hover:bg-red-400 sm:p-3"
-            @click="deleted(props.item)"
-          >
-            🗑️
-          </button>
         </div>
       </div>
     </div>
-    <div class="remove"></div>
+    <div class="flex items-center remove">
+      <button
+        class="p-2 rounded-md hover:bg-red-400 sm:p-3 "
+        @click="deleted(props.item)"
+      >
+        <font-awesome-icon icon="fa-solid fa-trash-can" />
+      </button>
+    </div>
   </section>
 </template>
 
