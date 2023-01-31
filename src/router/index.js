@@ -10,12 +10,12 @@ const routes = [
     component: Introduce
   },
   {
-    path: "/Course",
+    path: "/Vue-CourseCart/Course",
     name: "Course",
     component: Course
   },
   {
-    path: "/Cart",
+    path: "/Vue-CourseCart/Cart",
     name: "Cart",
     component: Cart
   }

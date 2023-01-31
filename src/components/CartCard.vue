@@ -1,13 +1,13 @@
 <template>
-  <section class="flex pr-3 mb-3 text-sm border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border sm:text-lg">
+  <section class="flex pr-3 mb-3 items-center text-sm border-4 border-yellow-500 bg-[#ffffff90] rounded-md groove-border sm:text-lg">
     <input
       type="checkbox"
-      class="mx-5" 
+      class="mx-3 scale-150" 
       v-model="deletedList"
       :value="props.item.id"
     />
     <img
-      class="object-cover w-32 h-32"
+      class="object-cover w-32 aspect-square"
       :src="props.item.picture"
       :alt="props.item.title"
     />

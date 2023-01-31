@@ -7,9 +7,9 @@
       <div  class="flex items-center justify-center">
         <router-link to="/Vue-CourseCart" class="mr-4 hover:text-[#B95756]">About Us</router-link>
         |
-        <router-link to="/Course" class="mx-4 hover:text-[#B95756]">Course List</router-link>
+        <router-link to="/Vue-CourseCart/Course" class="mx-4 hover:text-[#B95756]">Course List</router-link>
         |
-        <router-link to="/Cart" class="ml-4 hover:text-[#B95756]">Cart ({{ amount }})</router-link>
+        <router-link to="/Vue-CourseCart/Cart" class="ml-4 hover:text-[#B95756]">Cart ({{ amount }})</router-link>
       </div>
     </div>
 

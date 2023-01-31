@@ -1,6 +1,6 @@
 <template>
   <section class="flex items-center ml-3">
-    <div class="w-1/2 aspect-[8/11] wow fadeInLeft">    
+    <div class="w-1/2 aspect-[8/11] animated fadeInLeft">    
       <img
       class="object-cover w-full h-full rounded-xl"
       :src="props.item.picture"

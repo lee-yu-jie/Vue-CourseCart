@@ -1,6 +1,6 @@
 <template>
-  <div class="px-6 cart">
-    <div v-if="cartList.length !== 0" class="w-2/3 mx-auto ">
+  <div class="px-3 cart">
+    <div v-if="cartList.length !== 0" class="w-full mx-auto sm:w-2/3 ">
       <CartCard v-for="item in cartList" :key="item.id" :item="item"/>
       <div class="flex justify-between mb-2">
         <button
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { computed, ref, onMounted, onUnmounted } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import { useStore } from "vuex";
 import CartCard from '@/components/CartCard.vue'
 export default {
@@ -42,17 +42,24 @@ export default {
     const deletedChecked = () => {
       store.dispatch("handdeltedChecked");
     };
-
-    onMounted(() => {
+    const handnotCart = () => {
       let index = 0
-      function writing() {
-        if (index < data.length) {
-          notCart.value.innerHTML += data[index ++]
-        } else {
-          clearInterval(timer)
+      if( cartList.value.length === 0){
+        function writing() {
+          if (index < data.length) {
+            notCart.value.innerHTML += data[index ++]
+          } else {
+            clearInterval(timer)
+          }
         }
-      }
       timer = setInterval(writing, 200)
+      }
+    }
+    watch(cartList.value, () =>{
+        handnotCart()
+    })
+    onMounted(() => {
+      handnotCart()
     })
     return {
       cartList,
